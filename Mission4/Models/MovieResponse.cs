@@ -12,19 +12,16 @@ namespace Mission4.Models
         [Required]
         public int MovieId { get; set; }
 
-        [Required]
-        public string Category { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Literally dont be an idiot you have to enter a title!")]
         public string Title { get; set; }
          
-        [Required]
+        [Required(ErrorMessage = "Literally dont be an idiot you have to enter a year!")]
         public int Year { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Literally dont be an idiot you have to enter a director!")]
         public string Director { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Literally dont be an idiot you have to enter a rating!")]
         public string Rating { get; set; }
 
         public bool Edited { get; set; }
@@ -32,6 +29,12 @@ namespace Mission4.Models
 
         [StringLength(25)]
         public string Notes { get; set; }
+
+
+        // Build Foreign Key Relationship
+        [Required(ErrorMessage = "Literally dont be an idiot you have to enter a category!")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
     }
 }
